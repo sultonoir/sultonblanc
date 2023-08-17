@@ -2,8 +2,6 @@ import "./globals.css";
 import { Sora } from "next/font/google";
 import { TrpcProvider } from "@/utils/trpc-provider";
 import AuthProvider from "@/utils/AuthProvider";
-import Laycom from "@/components/shared/Laycom";
-
 const inter = Sora({ subsets: ["latin"] });
 
 export const metadata = {
@@ -18,9 +16,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
         className={`${inter.className} page relative bg-site bg-cover bg-no-repeat text-white`}
       >
         <TrpcProvider>
-          <AuthProvider>
-            <Laycom>{children}</Laycom>
-          </AuthProvider>
+          <AuthProvider>{children}</AuthProvider>
         </TrpcProvider>
       </body>
     </html>

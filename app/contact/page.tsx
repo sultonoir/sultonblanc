@@ -1,8 +1,8 @@
 import React from "react";
-import AboutClient from "./AboutClient";
+import ContactClient from "./ContactClient";
 
 const page = () => {
-  return <AboutClient />;
+  return <ContactClient />;
 };
 
 export default page;

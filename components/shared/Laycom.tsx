@@ -15,18 +15,16 @@ type Props = {
 const Laycom: React.FC<Props> = ({ children }) => {
   const path = usePathname();
   return (
-    <>
-      <motion.div
-        key={path}
-        className="h-full"
-      >
-        <TopLeftimg />
-        <Nav />
-        <Header />
-        <Transition />
-        {children}
-      </motion.div>
-    </>
+    <motion.div
+      key={path}
+      className="h-full"
+    >
+      <TopLeftimg />
+      <Nav />
+      <Header />
+      <Transition />
+      {children}
+    </motion.div>
   );
 };
 

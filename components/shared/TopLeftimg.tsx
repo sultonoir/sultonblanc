@@ -3,7 +3,7 @@ import React from "react";
 
 const TopLeftimg = () => {
   return (
-    <div className="absolute left-0 top-0 z-10 w-[200px] opacity-50 mix-blend-color-dodge xl:w-[400px]">
+    <div className="absolute left-0 top-0 w-[200px] opacity-50 mix-blend-color-dodge xl:w-[400px]">
       <Image
         src={"/top-left-img.png"}
         alt={""}
