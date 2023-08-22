@@ -6,17 +6,17 @@ import { HiArrowRight } from "react-icons/hi2";
 
 const ProjectBtn = () => {
   return (
-    <div className="mx-auto xl:mx-0">
+    <div className="mb-2">
       <Link
         href={`/work`}
-        className="group relative flex h-[185px] w-[185px] items-center justify-center bg-circleStar bg-cover bg-no-repeat"
+        className="bg-circleStar group relative ml-auto flex h-[185px] w-[185px] items-center justify-center bg-cover bg-no-repeat"
       >
         <Image
           src={"/rounded-text.png"}
           alt="ArrowRight"
           width={141}
           height={148}
-          className="h-full max-h-[148px] w-auto max-w-[141px] animate-spin-slow"
+          className="h-full max-h-[148px] w-auto max-w-[141px] animate-spin grayscale-[100%] transition-all duration-700"
         />
         <HiArrowRight className="absolute text-4xl transition-all duration-300 group-hover:translate-x-2" />
       </Link>

@@ -1,19 +1,16 @@
 "use client";
 import Circles from "@/components/Circles/Circles";
 import React, { useState } from "react";
-import {
-  FaHtml5,
-  FaCss3,
-  FaJs,
-  FaReact,
-  FaFigma,
-  FaWordpress,
-} from "react-icons/fa";
+import { FaHtml5, FaCss3, FaJs, FaReact, FaFigma } from "react-icons/fa";
 import {
   SiNextdotjs,
   SiFramer,
   SiAdobexd,
   SiAdobephotoshop,
+  SiTypescript,
+  SiMongodb,
+  SiPrisma,
+  SiTailwindcss,
 } from "react-icons/si";
 
 import { motion } from "framer-motion";
@@ -23,7 +20,7 @@ import CountUp from "react-countup";
 
 const aboutData = [
   {
-    title: "skills",
+    title: "Technology & Tools",
     info: [
       {
         title: "Web Development",
@@ -34,7 +31,10 @@ const aboutData = [
           <FaReact />,
           <SiNextdotjs />,
           <SiFramer />,
-          <FaWordpress />,
+          <SiTypescript />,
+          <SiMongodb />,
+          <SiPrisma />,
+          <SiTailwindcss />,
         ],
       },
       {
@@ -44,15 +44,19 @@ const aboutData = [
     ],
   },
   {
-    title: "awards",
+    title: "Language",
     info: [
       {
-        title: "Webby Awards - Honoree",
-        stage: "2011 - 2012",
+        title: "English",
       },
       {
-        title: "Adobe Design Achievement Awards - Finalist",
-        stage: "2009 - 2010",
+        title: "Japanese",
+      },
+      {
+        title: "Indonesia",
+      },
+      {
+        title: "Sunda",
       },
     ],
   },
@@ -60,33 +64,8 @@ const aboutData = [
     title: "experience",
     info: [
       {
-        title: "UX/UI Designer - XYZ Company",
-        stage: "2012 - 2023",
-      },
-      {
-        title: "Web Developer - ABC Agency",
-        stage: "2010 - 2012",
-      },
-      {
-        title: "Intern - DEF Corporation",
-        stage: "2008 - 2010",
-      },
-    ],
-  },
-  {
-    title: "credentials",
-    info: [
-      {
-        title: "Web Development - ABC University, LA, CA",
-        stage: "2011",
-      },
-      {
-        title: "Computer Science Diploma - AV Technical Institute",
-        stage: "2009",
-      },
-      {
-        title: "Certified Graphic Designer - ABC Institute, Los Angeles, CA",
-        stage: "2006",
+        title: "Web Developer - Diskominfo Kota sukabumi",
+        stage: "2022 - 2023",
       },
     ],
   },
@@ -95,14 +74,14 @@ const aboutData = [
 const AboutClient = () => {
   const [index, setIndex] = useState(0);
   return (
-    <div className="h-full bg-primary/30 py-32 text-center xl:text-left">
+    <div className="h-full bg-primary/30 text-center xl:text-left">
       <Circles />
       <motion.div
         variants={fadeIn("right", 0.2)}
         initial="hidden"
         animate="show"
         exit="hidden"
-        className="absolute -left-[370px] bottom-0 hidden xl:flex"
+        className="absolute -left-[245px] bottom-0 hidden max-w-lg xl:flex"
       >
         <Avatar />
       </motion.div>
@@ -194,10 +173,9 @@ const AboutClient = () => {
                 className="flex max-w-max flex-1 flex-col items-center gap-x-2 text-white/60 md:flex-row"
               >
                 <div className="mb-2 font-light md:mb-0">{item.title}</div>
-                <div className="hidden md:flex">-</div>
-                <div className="">
-                  {"stage" in item && <div>{item.stage}</div>}
-                </div>
+                {"stage" in item && <div className="hidden md:flex">-</div>}
+                {"icons" in item && <div className="hidden md:flex">-</div>}
+                {"stage" in item && <div>{item.stage}</div>}
                 <div className="flex gap-x-4">
                   {"icons" in item &&
                     item.icons.map((icon, iconsIndex) => (

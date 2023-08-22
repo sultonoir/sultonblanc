@@ -1,22 +1,24 @@
-import Image from "next/image";
+"use client";
 import Link from "next/link";
 import React from "react";
 import Social from "./Social";
+import { usePathname } from "next/navigation";
 
 const Header = () => {
+  const path = usePathname();
   return (
-    <header className="absolute z-30 flex w-full items-center px-16 xl:h-[90px] xl:px-0">
+    <header
+      className={`${
+        path === "/" && "absolute bg-transparent"
+      } z-30 flex w-full items-center bg-primary/30 px-16  xl:h-[90px] xl:px-0`}
+    >
       <div className="container mx-auto">
-        <div className="flex flex-col items-center justify-between gap-y-6 py-8 sm:flex-row">
+        <div className="flex flex-col items-center justify-between py-8 sm:flex-row">
           {/* Logo */}
           <Link href={"/"}>
-            <Image
-              src={"/logo.svg"}
-              alt="Logo"
-              width={220}
-              height={48}
-              priority
-            />
+            <p className="whitespace-nowrap text-[35px] font-semibold">
+              Sultonoir <span className="text-accent">.</span>
+            </p>
           </Link>
           <Social />
         </div>

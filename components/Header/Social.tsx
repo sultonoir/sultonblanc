@@ -1,36 +1,40 @@
 import Link from "next/link";
 import React from "react";
 import {
-  RiFacebookBoxLine,
   RiInstagramLine,
   RiTwitterLine,
   RiGithubLine,
+  RiDiscordLine,
 } from "react-icons/ri";
 
 const Social = () => {
   return (
-    <div className="flex items-center gap-x-5 text-lg">
+    <div className="flex items-center justify-center gap-x-5 text-2xl">
       <Link
-        href={""}
+        href={"https://github.com/sultonoir"}
         className="transition-all duration-300 hover:text-accent"
+        target="_blank"
       >
         <RiGithubLine />
       </Link>
       <Link
-        href={""}
+        href={"https://www.discordapp.com/users/503930090393042954"}
         className="transition-all duration-300 hover:text-accent"
+        target="_blank"
       >
-        <RiFacebookBoxLine />
+        <RiDiscordLine />
       </Link>
       <Link
-        href={""}
+        href={"https://www.instagram.com/sultonoir/"}
         className="transition-all duration-300 hover:text-accent"
+        target="_blank"
       >
         <RiInstagramLine />
       </Link>
       <Link
         href={""}
         className="transition-all duration-300 hover:text-accent"
+        target="_blank"
       >
         <RiTwitterLine />
       </Link>

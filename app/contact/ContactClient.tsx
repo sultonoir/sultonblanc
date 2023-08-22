@@ -8,7 +8,7 @@ import { BsArrowRight } from "react-icons/bs";
 const ContactClient = () => {
   return (
     <div className="h-full bg-primary/30">
-      <div className="container mx-auto flex items-center justify-center py-32 text-center xl:text-left">
+      <div className="container mx-auto flex items-center justify-center text-center xl:text-left">
         {/* Title */}
         <div className="flex w-full max-w-[700px] flex-col">
           <motion.h2

@@ -6,6 +6,8 @@ import z from "zod";
 import { hash } from "bcryptjs";
 import { pusherServer } from "@/lib/pusher";
 import { authOptions } from "../auth/[...nextauth]/options";
+import { createClient, groq } from "next-sanity";
+import { Project } from "@/types";
 
 const t = initTRPC.create({
   transformer: superjson,
@@ -57,6 +59,24 @@ export const appRouter = t.router({
       });
       return userdelet;
     }),
+  getProject: publicProcedure.query(async (): Promise<Project[]> => {
+    const client = createClient({
+      projectId: "5wjbt837",
+      dataset: "production",
+      apiVersion: "2023-03-04",
+    });
+    return client.fetch(
+      groq`*[_type == "project"]{
+        _id,
+        _createdAt,
+        name,
+        "slug": slug.current,
+        "image": image.asset->url,
+        url,
+        content
+      }`
+    );
+  }),
 });
 
 export type AppRouter = typeof appRouter;

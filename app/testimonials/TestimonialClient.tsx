@@ -7,7 +7,7 @@ import { fadeIn } from "@/components/shared/FadeIn";
 
 const TestimonialClient = () => {
   return (
-    <div className="h-full bg-primary/30 py-32 text-center">
+    <div className="h-full bg-primary/30 text-center">
       <div className="container mx-auto flex h-full flex-col justify-center">
         {/* title */}
         <motion.h2

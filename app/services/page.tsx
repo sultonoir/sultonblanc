@@ -7,7 +7,7 @@ import { fadeIn } from "@/components/shared/FadeIn";
 
 const page = () => {
   return (
-    <div className="flex h-full items-center bg-primary/30 py-36">
+    <div className="flex h-full items-center bg-primary/30">
       <Circles />
       <div className="container mx-auto">
         <div className="flex flex-col gap-x-8 xl:flex-row">

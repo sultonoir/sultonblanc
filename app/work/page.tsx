@@ -7,7 +7,7 @@ import WorkSlider from "@/components/Services/WorkSlider";
 
 const page = () => {
   return (
-    <div className="flex h-full items-center bg-primary/30 py-36">
+    <div className="flex h-full bg-primary/30 sm:items-center">
       <Circles />
       <div className="container mx-auto">
         <div className="flex flex-col gap-x-8 xl:flex-row">
@@ -29,10 +29,7 @@ const page = () => {
               exit="hidden"
               className="mx-auto mb-4 max-w-[400px] lg:mx-0"
             >
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-              Dignissimos laborum, dolorum magnam explicabo impedit eaque
-              eligendi, illum, eum officiis praesentium harum nesciunt. Ratione
-              deserunt eum nemo pariatur illum velit cum?
+              projects I've worked on so far
             </motion.p>
           </div>
           {/* serviceSlide */}

@@ -1,15 +1,25 @@
-import { getProjects } from "@/sanity/sanity-utils";
-
+"use client";
 import React from "react";
+import { api } from "@/utils/trpc";
+import Link from "next/link";
 
-const page = async () => {
-  const projects = await getProjects();
+const page = () => {
+  const { data, isLoading } = api.getProject.useQuery();
   return (
-    <div>
-      {projects.map((project) => (
-        <div key={project._id}>{project.name}</div>
-      ))}
-    </div>
+    <section>
+      {isLoading ? (
+        <p>Loading...</p>
+      ) : (
+        <>
+          {!data ? (
+            <p className="h-[50px] w-[200px] animate-pulse bg-slate-400"></p>
+          ) : (
+            <>{data.map((item) => item.name)}</>
+          )}
+          <Link href={"/"}>Home</Link>
+        </>
+      )}
+    </section>
   );
 };
 
