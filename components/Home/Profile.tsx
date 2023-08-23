@@ -25,14 +25,16 @@ const Profile: React.FC<ProfileProps> = ({ ClassName }) => {
         ClassName
       )}
     >
-      <Card className="w-full bg-card/10 backdrop-blur-sm">
+      <Card className="w-full border-foreground bg-card/10 backdrop-blur-sm">
         <CardHeader className="flex-row justify-between">
           <CardTitle className="text-center text-2xl font-semibold leading-[3rem]">
-            Sultonoir<span className="text-accent">.</span>
+            Sultonoir
+            <span className="text-rose-700 dark:text-secondary">.</span>
           </CardTitle>
           <div className="flex flex-col items-end text-[14px]">
             <p>
-              Front<span className="text-accent">-End</span>
+              Front
+              <span className="text-rose-700 dark:text-secondary">-End</span>
             </p>
             <p>
               & {""}
@@ -41,7 +43,7 @@ const Profile: React.FC<ProfileProps> = ({ ClassName }) => {
           </div>
         </CardHeader>
         <CardContent>
-          <div className="mx-auto w-52 overflow-hidden rounded-full border-[2px] border-border">
+          <div className="mx-auto w-52 overflow-hidden rounded-full border-[2px] border-foreground">
             <Image
               src="/1.png"
               alt="profile"
@@ -52,7 +54,7 @@ const Profile: React.FC<ProfileProps> = ({ ClassName }) => {
             />
           </div>
         </CardContent>
-        <CardDescription className="px-6 pt-0 text-center text-lg text-slate-950">
+        <CardDescription className="px-6 pt-0 text-center text-lg text-foreground">
           sultonalidrus4@gmail.com
         </CardDescription>
         <p className="px-6 text-center">Base in Sukabumi,Indonesia</p>
@@ -62,8 +64,8 @@ const Profile: React.FC<ProfileProps> = ({ ClassName }) => {
         <div className="mx-auto p-6">
           <Social />
         </div>
-        <CardFooter className="justify-center">
-          <Button className="w-full rounded-full border bg-rose-700 hover:border-rose-700 hover:bg-transparent hover:text-rose-700">
+        <CardFooter>
+          <Button className="w-full rounded-full border bg-rose-700 text-white hover:border-rose-700 hover:bg-transparent hover:text-rose-700">
             <Mail className="mr-2" />
             Hire me!
           </Button>

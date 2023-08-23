@@ -13,7 +13,7 @@ const Counter = () => {
       className="flex flex-1 xl:gap-x-6"
     >
       <div className="relative flex-1 after:absolute after:right-0 after:top-0 after:h-full after:w-[1px] after:bg-slate-900/10">
-        <div className="mb-2 text-2xl font-extrabold text-accent xl:text-4xl">
+        <div className="mb-2 text-2xl font-extrabold text-rose-700 xl:text-4xl">
           <CountUp
             start={0}
             end={1}
@@ -26,7 +26,7 @@ const Counter = () => {
         </div>
       </div>
       <div className="relative flex-1">
-        <div className="mb-2 text-2xl font-extrabold text-accent xl:text-4xl">
+        <div className="mb-2 text-2xl font-extrabold text-rose-700 xl:text-4xl">
           <CountUp
             start={0}
             end={5}

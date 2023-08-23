@@ -20,9 +20,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
           href="/AI.png"
         />
       </head>
-      <body
-        className={`${inter.className} relative bg-background text-primary`}
-      >
+      <body className={`${inter.className} relative body`}>
         <TrpcProvider>
           <AuthProvider>
             <ThemeProvider

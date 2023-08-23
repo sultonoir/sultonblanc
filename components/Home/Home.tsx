@@ -17,10 +17,10 @@ const Home = () => {
         <span className="font-semibold">INTRODUCE</span>
       </h4>
       <h1 className="mb-5 text-6xl">
-        Say Hi from <span className="text-accent">Sulton</span>,
+        Say Hi from <span className="text-rose-700">Sulton</span>,
         <br /> Front-End and Web Designer
       </h1>
-      <p className="max-w-xl text-muted-foreground">
+      <p className="max-w-xl text-secondary-foreground">
         I'm a passionate front end developer who loves to create beautiful, my
         focus is <span>React (nextJS) </span>
       </p>
