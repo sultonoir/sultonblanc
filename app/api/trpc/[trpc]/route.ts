@@ -1,20 +1,13 @@
-import {
-  FetchCreateContextFnOptions,
-  fetchRequestHandler,
-} from "@trpc/server/adapters/fetch";
-import { appRouter } from "../root";
+import { fetchRequestHandler } from "@trpc/server/adapters/fetch";
 
-const handler = (request: Request) => {
-  console.log(`incoming request ${request.url}`);
-  return fetchRequestHandler({
+import { AppRouter } from "@/server";
+
+const handler = (req: Request) => {
+  fetchRequestHandler({
     endpoint: "/api/trpc",
-    req: request,
-    router: appRouter,
-    createContext: function (
-      opts: FetchCreateContextFnOptions
-    ): object | Promise<object> {
-      return {};
-    },
+    req,
+    router: AppRouter,
+    createContext: () => ({}),
   });
 };
 

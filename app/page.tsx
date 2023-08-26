@@ -1,18 +1,26 @@
-import HomeClient from "@/components/Home/Home";
-import Profile from "@/components/Home/Profile";
-import Laycom from "@/components/shared/Laycom";
+import About from "@/components/about";
+import Contact from "@/components/contact";
+import Experience from "@/components/experience";
+import Intro from "@/components/intro";
+import Projects from "@/components/projects";
+import SectionDivider from "@/components/section-divider";
+import LayoutClient from "@/components/shared/layout-client";
+import Skills from "@/components/skills";
+import { serverClient } from "./_trpc/serverClient";
 
-export default function Home() {
+export default async function Home() {
+  const projects = await serverClient.getProject();
   return (
-    <Laycom>
-      <Profile />
-      <section className="relative overflow-hidden py-10">
-        <div className="mx-auto max-w-6xl px-4">
-          <div className="relative z-[3] mx-auto max-w-3xl xl:ml-auto xl:mr-0">
-            <HomeClient />
-          </div>
-        </div>
-      </section>
-    </Laycom>
+    <LayoutClient>
+      <main className="flex flex-col items-center px-4">
+        <Intro />
+        <SectionDivider />
+        <About />
+        <Projects ProjectData={projects} />
+        <Skills />
+        <Experience />
+        <Contact />
+      </main>
+    </LayoutClient>
   );
 }
