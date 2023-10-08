@@ -22,7 +22,7 @@ const Projects: React.FC<ProjectProps> = ({ ProjectData }) => {
       <SectionHeading>My projects</SectionHeading>
       <div>
         {ProjectData.map((project) => (
-          <React.Fragment key={project._id}>
+          <React.Fragment key={project.slug}>
             <Article project={project} />
           </React.Fragment>
         ))}
