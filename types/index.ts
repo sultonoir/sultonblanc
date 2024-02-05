@@ -5,7 +5,12 @@ export type Project = {
   createdAt: Date;
   name: string;
   slug: string;
-  image: string;
+  image: {
+    url: string;
+    metadata: {
+      lqip: string;
+    };
+  };
   url: string;
   content: PortableTextBlock[];
 };

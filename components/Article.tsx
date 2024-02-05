@@ -27,8 +27,7 @@ export default function Article({ project }: ProjectProps) {
         scale: scaleProgess,
         opacity: opacityProgess,
       }}
-      className="group mb-3 sm:mb-8 last:mb-0"
-    >
+      className="group mb-3 sm:mb-8 last:mb-0">
       <section className="bg-gray-100 max-w-[42rem] border border-black/5 rounded-lg overflow-hidden sm:pr-8 relative sm:h-[20rem] hover:bg-gray-200 transition sm:group-even:pl-8 dark:text-white dark:bg-white/10 dark:hover:bg-white/20">
         <div className="pt-4 pb-7 px-5 sm:pl-10 sm:pr-2 sm:pt-10 sm:max-w-[50%] flex flex-col h-full sm:group-even:ml-[18rem]">
           <h3 className="text-2xl font-semibold">{project.name}</h3>
@@ -38,14 +37,15 @@ export default function Article({ project }: ProjectProps) {
           <Link
             href={project.url}
             target="_blank"
-            className="px-2 py-1 bg-rose-700 rounded-md text-white hover:border hover:border-rose-700 hover:bg-transparent w-max mt-10 hover:text-rose-700 hover:dark:text-white"
-          >
+            className="px-4 py-2 rounded-lg flex gap-2 items-center bg-blue-600 w-fit font-medium text-white hover:bg-yellow-500 hover:text-black transition-colors duration-75 my-3">
             Live Project
           </Link>
         </div>
 
         <Image
-          src={project.image}
+          placeholder="blur"
+          blurDataURL={project.image.metadata.lqip as string}
+          src={project.image.url as string}
           alt="Project I worked on"
           quality={95}
           width={300}
@@ -56,11 +56,9 @@ export default function Article({ project }: ProjectProps) {
         group-hover:-translate-x-3
         group-hover:translate-y-3
         group-hover:-rotate-2
-
         group-even:group-hover:translate-x-3
         group-even:group-hover:translate-y-3
         group-even:group-hover:rotate-2
-
         group-even:right-[initial] group-even:-left-40"
         />
       </section>

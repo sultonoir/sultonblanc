@@ -35,27 +35,15 @@ export const links = [
 
 export const experiencesData = [
   {
-    title: "Graduated At University",
-    location: "Bina Sarana Informatika , Sukabumi",
-    description:
-      "I graduated after 4 years of studying. I immediately found a job as a junior front-end developer.",
-    icon: React.createElement(LuGraduationCap),
-    date: "2023",
-  },
-  {
     title: "Junior Front-End Developer",
     location: "Diskominfo, City of Sukabumi",
-    description: "I worked as a front-end developer for 6 month.",
+    description: {
+      one: "1. Developed, maintained, and shipped production code for client websites primarily using nextjs ",
+      two: "2. Performed quality assurance tests on various sites to ensure cross-browser compatibility and mobile responsiveness",
+    },
+
     icon: React.createElement(CgWorkAlt),
-    date: "2019 - 2021",
-  },
-  {
-    title: "Full-Stack Developer",
-    location: "Sukabumi, Indonesia",
-    description:
-      "I'm now a full-stack developer working as a freelancer. My stack includes React, Next.js, TypeScript, Tailwind, Prisma and MongoDB. I'm open to full-time opportunities.",
-    icon: React.createElement(FaReact),
-    date: "present",
+    date: "2022 - 2023",
   },
 ] as const;
 
@@ -95,10 +83,7 @@ export const skillsData = [
   "Tailwind",
   "Prisma",
   "MongoDB",
-  "Express",
   "PostgreSQL",
   "SQL",
-  "Figma",
   "SvelteKit",
-  "Framer Motion",
 ] as const;
