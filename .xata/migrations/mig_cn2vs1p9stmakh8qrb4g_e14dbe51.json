@@ -1,0 +1,14 @@
+{
+  "id": "mig_cn2vs1p9stmakh8qrb4g",
+  "parentID": "mig_cn2vrsms99soultrs0dg",
+  "checksum": "1:e14dbe51e2b1bec619041d846ec9b174d916029abebaf499b9bc064a1750b79b",
+  "operations": [
+    {
+      "renameColumn": {
+        "newName": "content",
+        "oldName": "caseStudy",
+        "table": "Posts"
+      }
+    }
+  ]
+}

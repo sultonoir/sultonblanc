@@ -1,0 +1,14 @@
+{
+  "id": "mig_cn2vrsms99soultrs0dg",
+  "parentID": "mig_cn27r08c12sfnm5nq65g",
+  "checksum": "1:44467725ef04c78d97b7ebe051db29d8b3976521fd1cae01c172b1010c7b1734",
+  "operations": [
+    {
+      "renameColumn": {
+        "newName": "summary",
+        "oldName": "description",
+        "table": "Posts"
+      }
+    }
+  ]
+}
