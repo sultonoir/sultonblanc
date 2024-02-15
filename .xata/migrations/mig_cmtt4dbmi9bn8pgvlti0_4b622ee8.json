@@ -1,0 +1,16 @@
+{
+  "id": "mig_cmtt4dbmi9bn8pgvlti0",
+  "parentID": "mig_cmtt49jmi9bn8pgvlth0",
+  "checksum": "1:4b622ee874c9c4954049f03ec17624e18ada55b591c6e02ca2667230842f9930",
+  "operations": [
+    {
+      "addColumn": {
+        "column": {
+          "name": "desc",
+          "type": "json"
+        },
+        "table": "Posts"
+      }
+    }
+  ]
+}

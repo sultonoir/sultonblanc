@@ -1,0 +1,16 @@
+{
+  "id": "mig_cmv1ut1828dmmgqmlhu0",
+  "parentID": "mig_cmv1ufqpbtrqoi8upef0",
+  "checksum": "1:78f0a105adcaa41fe2a11eb43ce2c1227f288dde59c22127fc74609f1341aefd",
+  "operations": [
+    {
+      "addColumn": {
+        "column": {
+          "name": "caseStudy",
+          "type": "text"
+        },
+        "table": "Posts"
+      }
+    }
+  ]
+}
