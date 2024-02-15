@@ -28,6 +28,7 @@ const Article = ({ project }: Props) => {
       <section className="flex w-full max-w-[42rem] flex-col gap-5 md:flex-row">
         <Link
           href={project.link ?? "/"}
+          target="_blank"
           className="relative h-[150px] w-[200px]">
           <Image
             src={project.imageUrl?.url ?? ""}
@@ -43,6 +44,7 @@ const Article = ({ project }: Props) => {
             {project.summary}
           </p>
           <Link
+            target="_blank"
             href={project.link ?? "/"}
             className="flex w-fit items-center gap-2 font-medium hover:text-blue-600">
             <Link2Icon />
