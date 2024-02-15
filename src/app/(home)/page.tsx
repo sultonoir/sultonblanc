@@ -1,3 +1,5 @@
-export default function Home() {
-  return <div>hello world</div>;
+import Home from "@/template/home";
+
+export default function Page() {
+  return <Home />;
 }

@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { signOut, useSession } from "next-auth/react";
+import { signOut } from "next-auth/react";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -12,42 +12,57 @@ import {
 
 import React from "react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { data } from "@/lib/data";
+import { LogOutIcon } from "lucide-react";
 
+interface UserAccountNavProps {
+  user:
+    | {
+        name?: string | undefined | null;
+        image?: string | undefined | null;
+        email?: string | undefined | null;
+      }
+    | undefined;
+}
 
-
-const UserAccountNav = () => {
-  const {data} = useSession()
+const UserAccountNav = ({ user }: UserAccountNavProps) => {
+  const items = data.sidebarNav;
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Avatar>
-          <AvatarImage src={data?.user?.image ?? ""} alt="image-user" />
+        <Avatar className="size-11 border border-border p-1">
+          <AvatarImage
+            src={user?.image ?? ""}
+            alt="image-user"
+            className="rounded-full"
+          />
           <AvatarFallback>
-            <span className="sr-only">{data?.user?.name ?? "sulton"}</span>
+            <span className="sr-only">{user?.name ?? "sulton"}</span>
           </AvatarFallback>
         </Avatar>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
         <div className="flex items-center justify-start gap-2 p-2">
           <div className="flex flex-col space-y-1 leading-none">
-            {data?.user?.name && <p className="font-medium">{data?.user.name}</p>}
-            {data?.user?.email && (
+            {user?.name && <p className="font-medium">{user.name}</p>}
+            {user?.email && (
               <p className="w-[200px] truncate text-sm text-muted-foreground">
-                {data?.user.email}
+                {user.email}
               </p>
             )}
           </div>
         </div>
         <DropdownMenuSeparator />
-        <DropdownMenuItem asChild>
-          <Link href="/sulton">Project</Link>
-        </DropdownMenuItem>
-        <DropdownMenuItem asChild>
-          <Link href="/dashboard/billing">Blog</Link>
-        </DropdownMenuItem>
-        <DropdownMenuItem asChild>
-          <Link href="/dashboard/settings">Settings</Link>
-        </DropdownMenuItem>
+        {items.map((item) => (
+          <DropdownMenuItem
+            asChild
+            key={item.name}>
+            <Link href="/sulton">
+              <item.icon className="mr-2 size-4" />
+              <span>{item.name}</span>
+            </Link>
+          </DropdownMenuItem>
+        ))}
         <DropdownMenuSeparator />
         <DropdownMenuItem
           className="cursor-pointer"
@@ -56,8 +71,8 @@ const UserAccountNav = () => {
             await signOut({
               callbackUrl: `${window.location.origin}/auth/login`,
             });
-          }}
-        >
+          }}>
+          <LogOutIcon className="mr-2 size-4" />
           Sign out
         </DropdownMenuItem>
       </DropdownMenuContent>

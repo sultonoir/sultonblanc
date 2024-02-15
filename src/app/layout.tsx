@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import SessionProvider from "@/components/ui/SessionProviders"
+import SessionProvider from "@/components/ui/SessionProviders";
 import "./globals.css";
+import ThemeSwitcher from "@/components/ui/ThemeSwitcher";
+import { ThemeProvider } from "@/components/ui/ThemeProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,13 +18,21 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html
+      lang="en"
+      suppressHydrationWarning>
       <body className={inter.className}>
         <SessionProvider>
-
-        {children}
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system">
+            {children}
+            <div className="fixed bottom-1 right-1">
+              <ThemeSwitcher />
+            </div>
+          </ThemeProvider>
         </SessionProvider>
-        </body>
+      </body>
     </html>
   );
 }

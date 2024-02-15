@@ -8,7 +8,7 @@ interface SelectSectionStore {
 }
 
 const useSelectSection = create<SelectSectionStore>((set) => ({
-  activeSection: "",
+  activeSection: "Home",
   lastTime: 0,
   setActiveSection: (activeSection) => set({ activeSection }),
   setTimeOfLastClick: (lastTime) => set({ lastTime }),
