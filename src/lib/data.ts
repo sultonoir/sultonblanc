@@ -74,12 +74,12 @@ export const data = {
     {
       name: "linkedin",
       icon: LinkedInLogoIcon,
-      href: "https://github.com/sultonoir",
+      href: "https://www.linkedin.com/in/sulton-alidrus-0b9b66291/",
     },
     {
       name: "Instagram",
       icon: InstagramLogoIcon,
-      href: "https://github.com/sultonoir",
+      href: "https://www.instagram.com/sultonoir/",
     },
   ],
   experience: [
