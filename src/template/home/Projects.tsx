@@ -1,16 +1,15 @@
 "use client";
 import SectionHeading from "@/components/ui/section-heading";
 import { useSectionInView } from "@/hooks/useSectionInView";
-import { PostsRecord } from "@/xata";
 import React from "react";
 import Article from "./Article";
+import { Contents } from "@/lib/types";
 
 type ProjectsProps = {
-  posts: PostsRecord[];
+  posts: Contents[];
 };
 
 const Projects = ({ posts }: ProjectsProps) => {
-  console.log(posts);
   const { ref } = useSectionInView("Projects", 0.5);
   return (
     <section

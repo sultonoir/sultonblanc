@@ -1,4 +1,4 @@
-import { PostsRecord } from "@/xata";
+import { Contents } from "@/lib/types";
 import { useScroll, useTransform, motion } from "framer-motion";
 import { Link2Icon } from "lucide-react";
 import Image from "next/image";
@@ -6,7 +6,7 @@ import Link from "next/link";
 import React, { useRef } from "react";
 
 type Props = {
-  project: PostsRecord;
+  project: Contents;
 };
 
 const Article = ({ project }: Props) => {
@@ -31,7 +31,7 @@ const Article = ({ project }: Props) => {
           target="_blank"
           className="relative h-[150px] w-[200px]">
           <Image
-            src={project.imageUrl?.url ?? "/logo.png"}
+            src={project.image ?? "/logo.png"}
             alt={project.title ?? "Sultonoir-image"}
             fill
             priority
