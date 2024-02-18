@@ -31,7 +31,7 @@ const Article = ({ project }: Props) => {
           target="_blank"
           className="relative h-[150px] w-[200px]">
           <Image
-            src={project.imageUrl?.url ?? ""}
+            src={project.imageUrl?.url ?? "/logo.png"}
             alt={project.title ?? "Sultonoir-image"}
             fill
             priority

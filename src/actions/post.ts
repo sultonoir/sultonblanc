@@ -24,6 +24,7 @@ export const createContent = action(
       await xata.db.Posts.create({
         title: "Draft",
         category,
+        link: "https://github.com/sultonoir",
         pubDate: new Date(),
       });
       revalidatePath(path);
@@ -41,54 +42,35 @@ export const updateContent = action(
     const base64Only = image?.replace(/^data:image\/\w+;base64,/, "") ?? "";
 
     try {
+      const updateData: any = {};
+
       if (title) {
-        await xata.db.Posts.update({
-          id,
-          title: title,
-          slug: slugify(title),
-        });
-        revalidatePath(path);
-      } else if (summary) {
-        await xata.db.Posts.update({
-          id,
-          summary: summary,
-        });
-        revalidatePath(path);
-      } else if (content) {
-        await xata.db.Posts.update({
-          id,
-          content: content,
-        });
-        revalidatePath(path);
-      } else if (image) {
-        await xata.db.Posts.update({
-          id,
-          imageUrl: XataFile.fromBase64(base64Only),
-        });
-        revalidatePath(path);
-      } else if (tag) {
-        await xata.db.Posts.update({
-          id,
-          tag: tag,
-        });
-        revalidatePath(path);
-      } else if (link) {
-        await xata.db.Posts.update({
-          id,
-          link: link,
-        });
-        revalidatePath(path);
-      } else {
-        await xata.db.Posts.update({
-          id,
-          title: title,
-          summary: summary,
-          content: content,
-          imageUrl: XataFile.fromBase64(base64Only),
-          tag: tag,
-          link: link,
-          slug: slugify(title),
-        });
+        updateData.title = title;
+        updateData.slug = slugify(title);
+      }
+
+      if (summary) {
+        updateData.summary = summary;
+      }
+
+      if (content) {
+        updateData.content = content;
+      }
+
+      if (image) {
+        updateData.imageUrl = XataFile.fromBase64(base64Only);
+      }
+
+      if (tag) {
+        updateData.tag = tag;
+      }
+
+      if (link) {
+        updateData.link = link;
+      }
+
+      if (Object.keys(updateData).length > 0) {
+        await xata.db.Posts.update({ id, ...updateData });
         revalidatePath(path);
       }
     } catch (err) {

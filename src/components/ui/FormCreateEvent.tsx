@@ -213,9 +213,8 @@ const FormCreateEvent = ({ post: data }: FormProps) => {
                   <div className="flex flex-col gap-2">
                     <div className="flex flex-wrap gap-2">
                       {field.value?.map((item) => (
-                        <Button
-                          className="relative bg-blue-200 text-blue-800 hover:bg-blue-300 hover:text-blue-800"
-                          size="lg"
+                        <button
+                          className="relative inline-flex items-center gap-2 rounded-full bg-blue-100 py-1 pl-3 pr-2 font-medium text-blue-800 active:scale-95 dark:bg-blue-600 dark:text-white"
                           key={item}
                           onClick={() =>
                             handleDeleteTag(
@@ -224,9 +223,11 @@ const FormCreateEvent = ({ post: data }: FormProps) => {
                               field.value ?? []
                             )
                           }>
-                          <XIcon className="absolute -left-2 -top-2 rounded-full border bg-white" />
                           {item}
-                        </Button>
+                          <span className="rounded-full bg-accent p-1 text-blue-800 dark:text-white">
+                            <XIcon size={15} />
+                          </span>
+                        </button>
                       ))}
                     </div>
                     <Input
