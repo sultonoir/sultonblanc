@@ -10,6 +10,7 @@ type ProjectsProps = {
 };
 
 const Projects = ({ posts }: ProjectsProps) => {
+  console.log(posts);
   const { ref } = useSectionInView("Projects", 0.5);
   return (
     <section
