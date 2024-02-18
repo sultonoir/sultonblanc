@@ -10,7 +10,7 @@ const Experience = () => {
   return (
     <div
       ref={ref}
-      id="Experience"
+      id="experience"
       className="mb-28 size-full">
       <SectionHeading>My Experience</SectionHeading>
       <div className="container grid max-w-screen-sm grid-cols-1 gap-5 ">
