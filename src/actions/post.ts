@@ -1,6 +1,4 @@
 "use server";
-
-import { XataClient } from "@/xata";
 import { createSafeActionClient } from "next-safe-action";
 import { revalidatePath } from "next/cache";
 import {
@@ -14,8 +12,9 @@ import slugify from "slugify";
 import ContactFormEmail from "@/components/ui/ContactFormEmail";
 import React from "react";
 import { Resend } from "resend";
+import { getXataClient } from "@/xata";
 export const action = createSafeActionClient();
-const xata = new XataClient();
+const xata = getXataClient();
 
 export const createContent = action(
   contentSchema,

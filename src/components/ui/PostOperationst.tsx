@@ -37,6 +37,7 @@ const PostOperationst = ({ actionType, id }: PostOperationstProps) => {
   const { status, execute } = useAction(deleteContent, {
     onSuccess: () => {
       toast.success("Content deleted");
+      setShowDeleteAlert(false);
     },
   });
   const path = usePathname();

@@ -140,6 +140,13 @@ let instance: XataClient | undefined = undefined;
 export const getXataClient = () => {
   if (instance) return instance;
 
-  instance = new XataClient();
+  instance = new XataClient({
+    // Override configuration here
+    databaseURL: defaultOptions.databaseURL,
+    apiKey: process.env.XATA_API_KEY,
+    fetch: fetch,
+    branch: process.env.XATA_BRANCH,
+    // ... other configuration
+  });
   return instance;
 };

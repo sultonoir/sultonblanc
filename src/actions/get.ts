@@ -1,5 +1,6 @@
-import { XataClient } from "@/xata";
-const xata = new XataClient();
+import { getXataClient } from "@/xata";
+
+const xata = getXataClient();
 export const getPosts = async (query: { id?: string; category?: string }) => {
   const posts = await xata.db.Posts.filter({
     category: query.category,
