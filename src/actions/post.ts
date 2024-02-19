@@ -27,6 +27,7 @@ export const createContent = action(
         pubDate: new Date(),
       });
       revalidatePath(path);
+      revalidatePath("/");
     } catch (err) {
       if (err instanceof Error) {
         return err;
@@ -71,6 +72,7 @@ export const updateContent = action(
       if (Object.keys(updateData).length > 0) {
         await xata.db.Posts.update({ id, ...updateData });
         revalidatePath(path);
+        revalidatePath("/");
       }
     } catch (err) {
       if (err instanceof Error) {
