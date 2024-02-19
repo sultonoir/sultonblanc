@@ -86,6 +86,7 @@ export const deleteContent = action(deleteSchema, async ({ id, path }) => {
   try {
     await xata.db.Posts.delete(id);
     revalidatePath(path);
+    revalidatePath("/");
   } catch (error) {
     if (error instanceof Error) {
       return error;
