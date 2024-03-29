@@ -42,38 +42,17 @@ export const updateContent = action(
     const base64Only = image?.replace(/^data:image\/\w+;base64,/, "") ?? "";
 
     try {
-      const updateData: any = {};
-
-      if (title) {
-        updateData.title = title;
-        updateData.slug = slugify(title);
-      }
-
-      if (summary) {
-        updateData.summary = summary;
-      }
-
-      if (content) {
-        updateData.content = content;
-      }
-
-      if (image) {
-        updateData.imageUrl = XataFile.fromBase64(base64Only);
-      }
-
-      if (tag) {
-        updateData.tag = tag;
-      }
-
-      if (link) {
-        updateData.link = link;
-      }
-
-      if (Object.keys(updateData).length > 0) {
-        await xata.db.Posts.update({ id, ...updateData });
-        revalidatePath(path);
-        revalidatePath("/");
-      }
+      await xata.db.Posts.update({
+        id,
+        title: title,
+        summary: summary,
+        content: content,
+        imageUrl: XataFile.fromBase64(base64Only),
+        tag: tag,
+        link: link,
+        slug: slugify(title),
+      });
+      revalidatePath(path);
     } catch (err) {
       if (err instanceof Error) {
         return err;
