@@ -87,7 +87,7 @@ export const data = {
       id: "1",
       name: "Frontend Web Developer",
       years: "2022 - 2023",
-      place: "Diskominfo",
+      place: "PT. DSAA Group",
       desc: "Responsible for developing, and implementing user-friendly and responsive web applications. My primary focus is on creating engaging user experiences by using a combination of ReactJS, NextJS, and other latest Frontend technologies while also working closely with designers and back-end developers to ensure seamless integration of web applications.",
     },
     {

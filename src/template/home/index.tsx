@@ -2,16 +2,28 @@ import React from "react";
 import Intro from "./Intro";
 import About from "./About";
 import Skills from "./skills";
-import { getPosts } from "@/actions/get";
 import Projects from "./Projects";
 import Contact from "./contact";
 import Experience from "./Experience";
+import { PostsRecord } from "@/xata";
+
+async function getData() {
+  const res = await fetch("http://localhost:3000/api/event/", {
+    method: "GET",
+    next: { tags: ["events"] },
+  });
+
+  if (!res.ok) {
+    // This will activate the closest `error.js` Error Boundary
+    throw new Error("Failed to fetch data");
+  }
+
+  return res.json();
+}
 
 const Home = async () => {
-  const posts = await getPosts({
-    category: "project",
-  });
-  const plainData = JSON.parse(JSON.stringify(posts));
+  const plainData: PostsRecord[] = await getData();
+
   return (
     <main className="mt-[80px] flex h-full flex-col items-center px-4">
       <div className="absolute top-0 -z-10 size-full bg-white dark:hidden">

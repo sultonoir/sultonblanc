@@ -2,7 +2,7 @@
 
 import { XataClient } from "@/xata";
 import { createSafeActionClient } from "next-safe-action";
-import { revalidatePath } from "next/cache";
+import { revalidateTag } from "next/cache";
 import {
   contentSchema,
   deleteSchema,
@@ -17,80 +17,38 @@ import { Resend } from "resend";
 export const action = createSafeActionClient();
 const xata = new XataClient();
 
-export const createContent = action(
-  contentSchema,
-  async ({ category, path }) => {
-    try {
-      await xata.db.Posts.create({
-        title: "Draft",
-        category,
-        pubDate: new Date(),
-      });
-      revalidatePath(path);
-    } catch (err) {
-      if (err instanceof Error) {
-        return err;
-      }
+export const createContent = action(contentSchema, async ({ category }) => {
+  try {
+    await xata.db.Posts.create({
+      title: "Draft",
+      category,
+      pubDate: new Date(),
+    });
+    revalidateTag("post");
+  } catch (err) {
+    if (err instanceof Error) {
+      return err;
     }
   }
-);
+});
 
 export const updateContent = action(
   formSchema,
-  async ({ id, title, summary, content, image, tag, link, path }) => {
+  async ({ id, title, summary, content, image, tag, link }) => {
     const base64Only = image?.replace(/^data:image\/\w+;base64,/, "") ?? "";
 
     try {
-      if (title) {
-        await xata.db.Posts.update({
-          id,
-          title: title,
-          slug: slugify(title),
-        });
-        revalidatePath(path);
-      } else if (summary) {
-        await xata.db.Posts.update({
-          id,
-          summary: summary,
-        });
-        revalidatePath(path);
-      } else if (content) {
-        await xata.db.Posts.update({
-          id,
-          content: content,
-        });
-        revalidatePath(path);
-      } else if (image) {
-        await xata.db.Posts.update({
-          id,
-          imageUrl: XataFile.fromBase64(base64Only),
-        });
-        revalidatePath(path);
-      } else if (tag) {
-        await xata.db.Posts.update({
-          id,
-          tag: tag,
-        });
-        revalidatePath(path);
-      } else if (link) {
-        await xata.db.Posts.update({
-          id,
-          link: link,
-        });
-        revalidatePath(path);
-      } else {
-        await xata.db.Posts.update({
-          id,
-          title: title,
-          summary: summary,
-          content: content,
-          imageUrl: XataFile.fromBase64(base64Only),
-          tag: tag,
-          link: link,
-          slug: slugify(title),
-        });
-        revalidatePath(path);
-      }
+      await xata.db.Posts.update({
+        id,
+        title: title,
+        summary: summary,
+        content: content,
+        imageUrl: XataFile.fromBase64(base64Only),
+        tag: tag,
+        link: link,
+        slug: slugify(title),
+      });
+      revalidateTag("post");
     } catch (err) {
       if (err instanceof Error) {
         return err;
@@ -99,10 +57,10 @@ export const updateContent = action(
   }
 );
 
-export const deleteContent = action(deleteSchema, async ({ id, path }) => {
+export const deleteContent = action(deleteSchema, async ({ id }) => {
   try {
     await xata.db.Posts.delete(id);
-    revalidatePath(path);
+    revalidateTag("post");
   } catch (error) {
     if (error instanceof Error) {
       return error;

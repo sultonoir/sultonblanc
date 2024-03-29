@@ -3,6 +3,7 @@ import FormCreateEvent from "@/components/ui/FormCreateEvent";
 import { redirect } from "next/navigation";
 import React from "react";
 
+export const dynamic = "force-dynamic";
 const page = async ({ params }: { params: { id: string } }) => {
   const data = await getPostById(params.id);
   if (!data) redirect("/");

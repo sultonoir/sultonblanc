@@ -10,7 +10,8 @@ const Experience = () => {
   return (
     <div
       ref={ref}
-      className="mb-28 size-full">
+      id="experience"
+      className="mb-36 size-full scroll-mt-28">
       <SectionHeading>My Experience</SectionHeading>
       <div className="container grid max-w-screen-sm grid-cols-1 gap-5 ">
         {data.experience.map((item) => (

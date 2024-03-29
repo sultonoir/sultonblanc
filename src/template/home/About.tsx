@@ -26,21 +26,18 @@ export default function About() {
           className="object-contain object-center"
         />
       </div>
-      <div className="flex flex-col gap-2 text-justify">
+      <div className="flex flex-col gap-2 text-start">
         <SectionHeading>About me</SectionHeading>
-        <p className="mb-3 font-medium">
-          {`Hello! I'm Sulton, a passionate frontend web developer with a
-          strong affinity for problem-solving. I find immense satisfaction in
-          unraveling complex challenges and crafting efficient solutions.
-          Proficient in React, Next.js, Node.js, and MongoDB, I am always eager
-          to expand my technological toolkit. Actively seeking a full-time
-          position as a frontend developer`}
-        </p>
-        <p className="font-medium">
-          Beyond coding, my commitment extends to the esports arena, where I
-          actively refine my gaming skills to compete at a competitive level in
-          tournaments. This combination of technical prowess and a competitive
-          spirit makes me a dynamic candidate for your team.
+        <p className="mb-3 font-medium leading-snug text-muted-foreground">
+          I am Sulton a dynamic developer from Indonesia, driven by an
+          insatiable passion for creating stunning and captivating websites.
+          Armed with a flair for creativity and a proficient ability to
+          transform designs into fully functional digital experiences. I bring a
+          unique blend of vision and technical prowess to every project. My goal
+          is to not only meet but exceed expectations, sculpting visually
+          striking and intuitively responsive websites that leave a lasting
+          impression on users. Let my skills and expertise help you on your
+          journey of turning concepts into captivating digital realities.
         </p>
       </div>
     </motion.section>
