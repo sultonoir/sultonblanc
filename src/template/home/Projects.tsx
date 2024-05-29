@@ -15,13 +15,15 @@ const Projects = ({ posts }: ProjectsProps) => {
     <section
       ref={ref}
       id="projects"
-      className="mb-28 scroll-mt-28">
+      className="container mb-28 scroll-mt-28">
       <SectionHeading>My projects</SectionHeading>
-      {posts.map((project) => (
-        <React.Fragment key={project.id}>
-          <Article project={project} />
-        </React.Fragment>
-      ))}
+      <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
+        {posts.map((project) => (
+          <React.Fragment key={project.id}>
+            <Article project={project} />
+          </React.Fragment>
+        ))}
+      </div>
     </section>
   );
 };

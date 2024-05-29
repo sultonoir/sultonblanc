@@ -24,7 +24,7 @@ const Article = ({ project }: Props) => {
         scale: scaleProgess,
         opacity: opacityProgess,
       }}
-      className="group mb-3 rounded-lg border p-4 last:mb-0 sm:mb-8">
+      className="group mb-3 h-full rounded-lg border p-4 last:mb-0 sm:mb-8">
       <section className="flex w-full max-w-[42rem] flex-col gap-5 md:flex-row">
         <Link
           href={project.link ?? "/"}

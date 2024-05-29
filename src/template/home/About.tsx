@@ -26,18 +26,16 @@ export default function About() {
           className="object-contain object-center"
         />
       </div>
-      <div className="flex flex-col gap-2 text-justify">
+      <div className="flex flex-col gap-2 text-left">
         <SectionHeading>About me</SectionHeading>
-        <p className="mb-3 font-medium">
-          I am Sulton a dynamic developer from Indonesia, driven by an
-          insatiable passion for creating stunning and captivating websites.
-          Armed with a flair for creativity and a proficient ability to
-          transform designs into fully functional digital experiences. I bring a
-          unique blend of vision and technical prowess to every project. My goal
-          is to not only meet but exceed expectations, sculpting visually
-          striking and intuitively responsive websites that leave a lasting
-          impression on users. Let my skills and expertise help you on your
-          journey of turning concepts into captivating digital realities.
+        <p className="mb-3 text-base font-medium">
+          My expertise spans both frontend, allowing me to create comprehensive
+          and seamlessly integrated web solutions. I am committed to developing
+          and optimizing interactive, user-friendly, and feature-rich web
+          applications. I&apos;m proficient in troubleshooting complex issues
+          and implementing new features.Whether you&apos;re a business seeking a
+          robust web presence or an employer looking to hire a versatile
+          developer, feel free to get in touch.
         </p>
       </div>
     </motion.section>
