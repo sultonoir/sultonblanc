@@ -4,6 +4,7 @@ import SessionProvider from "@/components/ui/SessionProviders";
 import "./globals.css";
 import ThemeSwitcher from "@/components/ui/ThemeSwitcher";
 import { ThemeProvider } from "@/components/ui/ThemeProvider";
+import { Analytics } from "@vercel/analytics/react";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -32,6 +33,7 @@ export default function RootLayout({
             </div>
           </ThemeProvider>
         </SessionProvider>
+        <Analytics />
       </body>
     </html>
   );
