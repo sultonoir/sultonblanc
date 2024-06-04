@@ -1,12 +1,10 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import SessionProvider from "@/components/ui/SessionProviders";
 import "./globals.css";
 import ThemeSwitcher from "@/components/ui/ThemeSwitcher";
 import { ThemeProvider } from "@/components/ui/ThemeProvider";
 import { Analytics } from "@vercel/analytics/react";
-
-const inter = Inter({ subsets: ["latin"] });
+import { GeistSans } from "geist/font/sans";
 
 export const metadata: Metadata = {
   title: "Sultonoir",
@@ -22,7 +20,7 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning>
-      <body className={inter.className}>
+      <body className={GeistSans.className}>
         <SessionProvider>
           <ThemeProvider
             attribute="class"
